@@ -15,6 +15,10 @@ variable "key_name" {
   description = "AWS EC2 SSH key name"
 }
 
+variable "instance_count" {
+  description = "Number of EC2 instances to create"
+  default     = 2
+}
 variable "instance_type" {
   description = "Type of EC2 instance to provision"
   default     = "t3.small"

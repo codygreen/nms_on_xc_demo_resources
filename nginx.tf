@@ -1,7 +1,9 @@
 resource "random_pet" "server" {
+  count  = var.instance_count
   length = 2
 }
 resource "aws_instance" "nginx" {
+  count                       = var.instance_count
   ami                         = data.aws_ami.ubuntu.id
   instance_type               = var.instance_type
   vpc_security_group_ids      = [aws_security_group.egress.id]
@@ -11,7 +13,7 @@ resource "aws_instance" "nginx" {
   iam_instance_profile        = aws_iam_instance_profile.nms_profile.name
 
   user_data = templatefile("${path.module}/user_data/nginx.tpl", {
-    hostname           = random_pet.server.id
+    hostname           = random_pet.server[count.index].id
     tailscale_auth_key = var.tailscale_auth_key
     region             = var.region
     nginx-repo-crt     = format("%s-nginx-repo-crt-%s", local.owner_name_safe, random_id.id.hex)
@@ -22,7 +24,7 @@ resource "aws_instance" "nginx" {
   })
 
   tags = {
-    Name    = format("%s-nginx", local.owner_name_safe)
+    Name    = format("%s-nginx-%s", local.owner_name_safe, random_pet.server[count.index].id)
     Owner   = var.owner_email
     Project = format("%s-nms-on-xc", local.owner_name_safe)
   }
