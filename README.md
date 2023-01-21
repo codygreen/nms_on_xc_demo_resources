@@ -3,6 +3,7 @@
 Deploy NGINX Plus resources into AWS to demo NMS on XC
 
 > Note: NMS on XC is in early preview so not all resources will be publicly available.
+
 > Note: This deployment leverages [Tailscale](https://tailscale.com/) to connect into the EC2 instances.
 
 ![Lab diagram](./NMS_on_XC.png)
