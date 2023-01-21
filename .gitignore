@@ -30,3 +30,5 @@ override.tf.json
 nginx-repo.crt
 nginx-repo.key
 terraform.tfvars
+agent.crt
+agent.key

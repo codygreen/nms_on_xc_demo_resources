@@ -20,6 +20,10 @@ variable "instance_type" {
   default     = "t3.small"
 }
 
+variable "nms_host" {
+  description = "FQDN of the NMS instance"
+}
+
 variable "tailscale_auth_key" {
   description = "Tailscale Device Auth Key"
 }
