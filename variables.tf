@@ -1,20 +1,3 @@
-variable "region" {
-  description = "AWS region"
-  default     = "us-west-1"
-}
-
-variable "owner_name" {
-  description = "Owner name"
-}
-
-variable "owner_email" {
-  description = "Owner email address"
-}
-
-variable "key_name" {
-  description = "AWS EC2 SSH key name"
-}
-
 variable "instance_count" {
   description = "Number of EC2 instances to create"
   default     = 2
@@ -24,8 +7,23 @@ variable "instance_type" {
   default     = "t3.small"
 }
 
+variable "key_name" {
+  description = "AWS EC2 SSH key name"
+}
 variable "nms_host" {
   description = "FQDN of the NMS instance"
+}
+
+variable "owner_name" {
+  description = "Owner name"
+}
+
+variable "owner_email" {
+  description = "Owner email address"
+}
+variable "region" {
+  description = "AWS region"
+  default     = "us-west-1"
 }
 
 variable "tailscale_auth_key" {
