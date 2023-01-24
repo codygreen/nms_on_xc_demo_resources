@@ -1,0 +1,6 @@
+key_name           = "ec2-key-name-that-exists-in-region"
+region             = "us-west-2"
+owner_email        = "myemail@example.com"
+owner_name         = "Jack Frost"
+tailscale_auth_key = "tskey-auth-xxxx-xxxx"
+nms_host           = "nms-agent-host-fqdn"
