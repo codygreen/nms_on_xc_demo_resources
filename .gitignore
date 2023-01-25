@@ -29,6 +29,8 @@ override.tf.json
 # example: *tfplan*
 nginx-repo.crt
 nginx-repo.key
+nginx-repo.jwt
 terraform.tfvars
 agent.crt
 agent.key
+agent.csr
