@@ -8,7 +8,7 @@ resource "aws_instance" "nginx" {
   instance_type               = var.instance_type
   vpc_security_group_ids      = [aws_security_group.egress.id]
   subnet_id                   = aws_subnet.private.id
-  associate_public_ip_address = false
+  associate_public_ip_address = true
   key_name                    = var.key_name
   iam_instance_profile        = aws_iam_instance_profile.nms_profile.name
 
